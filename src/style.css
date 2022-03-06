@@ -1,0 +1,256 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Karla", sans-serif;
+  /*font-family: 'Roboto', sans-serif;*/
+}
+
+/* =================
+   Navbar
+================= */
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+  /*padding: 45px 30px;*/
+  height: 125px;
+  min-width: 430px;
+  background-color: #1f1c18;
+}
+
+.logo-all {
+  display: flex;
+  align-items: center;
+  margin: 1.5em 0;
+}
+
+.logo-name {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.menu-items {
+  display: flex;
+  font-weight: 600;
+  margin-bottom: 1em;
+}
+
+a:-webkit-any-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.menu-items li {
+  list-style: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  position: relative;
+  padding: 0 10px;
+}
+
+.menu-items li:after {
+  content: "";
+  position: absolute;
+  background-color: #0b5c72;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+
+.menu-items li:hover,
+.menu-items li:focus {
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.menu-items li:hover:after,
+.menu-items li:focus:after {
+  width: 100%;
+}
+
+@media (min-width: 600px) {
+  .navbar {
+    flex-direction: row;
+    max-height: 100px;
+    padding: 0 30px;
+  }
+  .logo-all {
+    margin: 0;
+  }
+  .menu-items {
+    margin: 0 2.5em 0;
+  }
+}
+
+/* =================
+   Memory Game
+================= */
+.images-container {
+  display: grid;
+  grid-template: repeat(4, auto) / repeat(4, 150px);
+  grid-gap: 10px;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+.flag {
+  height: auto;
+  width: 150px;
+  object-fit: cover;
+  margin: 5px;
+}
+
+.border {
+  border: 1px solid black;
+  height: auto;
+  width: 150px;
+}
+
+.title-memory {
+  text-align: center;
+  padding: 1.5em;
+  font-size: 2em;
+}
+
+.btn-memory {
+  padding: 1em 2.5em;
+  border-radius: 5px;
+  border: none;
+  background: #76ac76;
+  margin: 0 auto;
+  color: #fff;
+  font-weight: 700;
+  /*background: linear-gradient(45deg, #09009f, #00ff95 80%);*/
+}
+
+.container-memory {
+  display: flex;
+  flex-direction: column;
+}
+
+.count {
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* =================
+   Magic Square
+================= */
+.container-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #8e0e00;
+  min-width: 430px;
+}
+
+.main-board {
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 2em;
+}
+.header-magic-square {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.title-magic-square,
+h3 {
+  color: #fff;
+}
+
+.btn-newgame {
+  padding: 0.75em 1.15em;
+  width: 150px;
+  border-radius: 15px;
+  background: #f12711; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #f5af19,
+    #f12711
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #f5af19,
+    #f12711
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  border: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.square {
+  height: 100px;
+  width: 75px;
+  background-color: #fff;
+  color: black;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  font-size: 2rem;
+}
+
+.btn-container {
+  margin-bottom: 2em;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5em;
+  /*display: flex;
+  flex-wrap: wrap*/
+}
+
+.number-btn {
+  padding: 2em;
+  border-radius: 0.5em;
+  background-color: #efefef;
+  color: black;
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.number-btn:nth-child(9) {
+  grid-column: 1 / 2;
+}
+
+/* =================
+   Card-Table
+================= */
+.card-table {
+  background-image: url("./Images/table.png");
+  background-repeat: no-repeat;
+  width: 750px;
+  height: 750px;
+}
+
+.table-container {
+  margin: 0 auto;
+}
+
+.card-slot {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 120px;
+  width: calc(120px * 5 / 7);
+}
