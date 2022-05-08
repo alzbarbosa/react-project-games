@@ -1,5 +1,6 @@
 import React from "react"
 import logo from "../logo.svg"
+import { Link } from "react-router-dom"
 
 
 export default function NavBar() {
@@ -10,7 +11,7 @@ export default function NavBar() {
         <h3 className="logo-name">React Games</h3>
         </div>
         <ul className="menu-items">
-            <li>Home</li>
+            <Link to="/"><li>Home</li></Link>
             <li>Projects</li>
             <li>About</li>
         </ul>

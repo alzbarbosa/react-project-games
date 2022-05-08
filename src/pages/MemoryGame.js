@@ -2,6 +2,8 @@ import React from "react"
 import Image from "../components/Image"
 import ReactConfetti from "react-confetti";
 
+import card from "../Images/flag-of-Somalia.png"
+
 let groupFlags =["./flags/flag-of-Brazil.png", "./flags/flag-of-Canada.png", "./flags/flag-of-Ecuador.png", "./flags/flag-of-France.png", "./flags/flag-of-Germany.png", "./flags/flag-of-Spain.png", "./flags/flag-of-Sweden.png", "./flags/flag-of-Switzerland.png"]
 groupFlags = groupFlags.concat(groupFlags).sort()
 
@@ -34,7 +36,7 @@ function shuffle(array) {
 
 function newGame() {
 let startGame = []
-
+win? setRecord(prevRecord=> prevRecord > count? count : prevRecord) : setRecord(prevRecord => prevRecord)
 groupFlags.map((image, index) => {
 return startGame.push({img: image, id: index, isSelected:false, foundPair: false})
 })
@@ -66,7 +68,7 @@ else if (match[1] && match[1][0].img === match[0][0].img) {
     }))
     setCount(counter + 1)
     setWin(imagesToPlay.every(item => item.isSelected === true))
-    /*setRecord(prevRecord=> prevRecord > count? count : prevRecord)*/
+    
 }
 else if (match[1] && match[1][0].img !== match[0][0].img) {
     setImagesToPlay(prevImagesToPlay => prevImagesToPlay.map(image => {
@@ -116,10 +118,29 @@ console.log("image already paired")
 
 const elementsImages = imagesToPlay.map(flag => {
     return (
-    <Image img={flag.img} key={flag.id} onClick={()=>flipImage(flag.id)} isSelected={flag.isSelected} foundPair={flag.foundPair} isPaired={isPaired} className="flag"/>
+    <Image src={flag.isSelected? flag.img : card} 
+    img={flag.img} 
+    key={flag.id} 
+    /*
+    onClick={()=>flipImage(flag.id)} 
+    isSelected={flag.isSelected} 
+    foundPair={flag.foundPair} 
+    isPaired={isPaired} 
+    */
+    className="flag"
+    onClick={flag.foundPair? isPaired : ()=>flipImage(flag.id)}
+    />
+    
     )
 })
 
+/*
+const elementsImages = imagesToPlay.map(flag => {
+    return (
+    <Image img={flag.img} key={flag.id} onClick={()=>flipImage(flag.id)} isSelected={flag.isSelected} foundPair={flag.foundPair} isPaired={isPaired} className="flag"/>
+    )
+})
+*/
 
 
     return (
@@ -131,9 +152,10 @@ const elementsImages = imagesToPlay.map(flag => {
 {elementsImages}
 </section>
 <button className="btn-memory" onClick={newGame}>New Game</button>
-<span className="count">{count}</span>
-<span className="count">{record}</span>
-
+<section className="moves-info">
+<p className="count">Current move: {count}</p>
+<p className="count">Record: {record}</p>
+</section>
 </article>
 </>
     )
