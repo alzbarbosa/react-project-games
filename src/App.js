@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage/>} />
         <Route path="memory-game" element={<MemoryGame/>} />
-        <Route path="magic-sqaure" element={<MagicSquare/>} />
+        <Route path="magic-square" element={<MagicSquare/>} />
         <Route path="tenzies" element={<Tenzies/>} />
       </Routes>
       <Footer />

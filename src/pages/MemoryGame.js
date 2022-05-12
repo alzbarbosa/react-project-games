@@ -1,6 +1,7 @@
 import React from "react"
 import Image from "../components/Image"
 import ReactConfetti from "react-confetti";
+import {GiThink} from "react-icons/gi"
 
 import card from "../Images/flag-of-Somalia.png"
 
@@ -34,6 +35,7 @@ function shuffle(array) {
   return array;
 }
 
+// Starting a new game
 function newGame() {
 let startGame = []
 win? setRecord(prevRecord=> prevRecord > count? count : prevRecord) : setRecord(prevRecord => prevRecord)
@@ -52,6 +54,7 @@ newGame()
 }, [])
 
 
+// Checking if the user has won
 React.useEffect(() => {  
 const lastSelected = [match[0]] 
 const counter = count
@@ -83,7 +86,7 @@ else if (match[1] && match[1][0].img !== match[0][0].img) {
 },[match])
 
 
-
+// Flipping the images
 function flipImage(id) {
 
 if (match.length < 2) {
@@ -100,7 +103,6 @@ const cardSelected = imagesToPlay.filter(flag => {
 
 
 
-
 if (!match) {
     setMatch(cardSelected)
 } 
@@ -111,7 +113,7 @@ setMatch(prevValue => {
 }
 
 
-
+// checking if the user found the pair
 function isPaired() {
 console.log("image already paired")
 }
@@ -121,12 +123,6 @@ const elementsImages = imagesToPlay.map(flag => {
     <Image src={flag.isSelected? flag.img : card} 
     img={flag.img} 
     key={flag.id} 
-    /*
-    onClick={()=>flipImage(flag.id)} 
-    isSelected={flag.isSelected} 
-    foundPair={flag.foundPair} 
-    isPaired={isPaired} 
-    */
     className="flag"
     onClick={flag.foundPair? isPaired : ()=>flipImage(flag.id)}
     />
@@ -134,29 +130,21 @@ const elementsImages = imagesToPlay.map(flag => {
     )
 })
 
-/*
-const elementsImages = imagesToPlay.map(flag => {
-    return (
-    <Image img={flag.img} key={flag.id} onClick={()=>flipImage(flag.id)} isSelected={flag.isSelected} foundPair={flag.foundPair} isPaired={isPaired} className="flag"/>
-    )
-})
-*/
-
-
-    return (
-<>
-<article className="container-memory">
-<h1 className="title-memory">Memory Game</h1>
-<section className="images-container">
-{win && <ReactConfetti/>}
-{elementsImages}
-</section>
-<button className="btn-memory" onClick={newGame}>New Game</button>
-<section className="moves-info">
-<p className="count">Current move: {count}</p>
-<p className="count">Record: {record}</p>
-</section>
-</article>
-</>
+// Frontend
+return (
+    <>
+        <article className="container-memory">
+         <h1 className="title-memory"><GiThink />Memory Game <GiThink /></h1>
+        <section className="images-container">
+        {win && <ReactConfetti/>}
+        {elementsImages}
+        </section>
+        <button className="btn-memory" onClick={newGame}>New Game</button>
+        <section className="moves-info">
+        <p className="count">Current move: {count}</p>
+        <p className="count">Record: {record}</p>
+        </section>
+        </article>
+    </>
     )
 }

@@ -13,7 +13,7 @@ export default function NavBar() {
         <ul className="menu-items">
             <Link to="/"><li>Home</li></Link>
             <li>Projects</li>
-            <li>About</li>
+            <li>About Me</li>
         </ul>
     </nav>
     )

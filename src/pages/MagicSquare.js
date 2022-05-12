@@ -32,10 +32,13 @@ setWin(winner)
 
 },[board])
 
+
+// function to set the number chose by user
 function choseNumber(number) {
 setSelectedNumber(number)
 }
 
+// Actions to add the number in the board
 function actionPlayer(i) {
     const updatedBoard = [...board]
     let index = updatedBoard.findIndex(number => number === selectedNumber)
@@ -54,42 +57,40 @@ function actionPlayer(i) {
     }
 }
 
-/* ==== this options is to add a fixed number at the start of the game ====
-function fixedNumber() {
-    const number = Math.ceil(Math.random()*9)
-    const index = Math.floor(Math.random() * numberGroup.length)
-    setSelectedNumber(numberGroup.splice(index,1,number))
-}
-*/
-
+// Creating a Board
 const newBoard = board.map((number, i) => {
     return (
     <Square className="square" value={number} key={i} onClick={()=>actionPlayer(i)}/>
     )
 })
 
+// Board after finished
 const winnerBoard = board.map((number, i) => {
     return (
     <Square value={number} key={i} className="square"/>
     )
 })
 
+// Number buttons for user to choose
 const btnGenerator = numbersToPlay.map(number => {
     return (
         <Numberbtn value={number.number} choseNumber={choseNumber} key={number.number} used={number.used} />
     )
 })
 
+// New Game function
 function newGame() {
     setWin(false)
     setBoard(Array(9).fill(null))
     setNumbersToPlay([{number: 1, used: false},{number: 2, used: false}, {number: 3, used: false}, {number: 4, used: false}, {number: 5, used: false}, {number: 6, used: false}, {number: 7, used: false}, {number: 8, used: false}, {number: 9, used: false}])
 }
 
+// Show/hide rules
 function toggle() {
     setShowRules(prevShow => !prevShow)
 }
 
+// Frontend
     return (
         <div>
         {win && <ReactConfetti />}
