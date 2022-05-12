@@ -1,7 +1,6 @@
 import React from 'react'
 import imgHero from "../Images/desk-computer.jpg"
 import Project from "../components/Project";
-import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   return (
