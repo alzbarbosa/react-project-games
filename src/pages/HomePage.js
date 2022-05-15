@@ -1,6 +1,9 @@
 import React from 'react'
 import imgHero from "../Images/desk-computer.jpg"
 import Project from "../components/Project";
+import imgTenzies from "../Images/dices.jpg"
+import imgMemory from "../Images/flags.jpg"
+import imgMagic from "../Images/numbers.jpg"
 
 const HomePage = () => {
   return (
@@ -16,12 +19,16 @@ const HomePage = () => {
             <div className="container-supreme">
              <Project name="React Memory Game"
              text="Matching the flags with just a few moves. How many moves do you need? "
-             link="memory-game"/>
+             link="memory-game"
+             image={imgMemory}
+             />
              <Project name="React Magic Square Game"
              text="Arrange the numbers to sum 15 in every direction. Can you do it? "
+             image={imgMagic}
              link="magic-square"/>
              <Project name="React Tenzies Game"
              text="Roll ten dices and try to get the same value in all. How is your luck today? "
+             image={imgTenzies}
              link="tenzies"/>
             </div>
         </div>
