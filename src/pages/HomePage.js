@@ -1,5 +1,5 @@
 import React from 'react'
-import imgHero from "../Images/desk-computer.jpg"
+import imgHero from "../Images/boardgames.jpg"
 import Project from "../components/Project";
 import imgTenzies from "../Images/dices.jpg"
 import imgMemory from "../Images/flags.jpg"
@@ -13,8 +13,8 @@ const HomePage = () => {
             <img className="img-hero" src={imgHero} />
             </section>
             <section className="title-hero">
-                <h1 className="title-call">React Games to all type of devices</h1>
-                <p className="subtitle-call">If you want to have a modern interaction with your customers, use React to create your pages and apps</p>
+                <h1 className="title-call">Creating games for everyone with React</h1>
+                <p className="subtitle-call">If you want to have a modern interaction with your customers, use React to create your pages and games</p>
             </section>
             <div className="container-supreme">
              <Project name="React Memory Game"

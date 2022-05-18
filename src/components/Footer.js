@@ -17,10 +17,10 @@ export default function Footer() {
         </div>
         <div className="container-icons-contact">
             
-        <BsLinkedin className="icon-contact"/>
-        <BsGithub className="icon-contact"/>
-        <BsFacebook className="icon-contact"/>
-        <FaCodepen className="icon-contact"/>
+        <a href="https://www.linkedin.com/in/andre-barbosa-b4933114a/"><BsLinkedin className="icon-contact"/></a>
+        <a href="https://github.com/alzbarbosa"><BsGithub className="icon-contact"/></a>
+        <a href="https://www.facebook.com/profile.php?id=100022024270844"><BsFacebook className="icon-contact"/></a>
+        <a href="https://codepen.io/aquarius83"><FaCodepen className="icon-contact"/></a>
 
         </div>
         </section>

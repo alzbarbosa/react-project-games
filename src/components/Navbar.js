@@ -12,8 +12,8 @@ export default function NavBar() {
         </div>
         <ul className="menu-items">
             <Link to="/"><li>Home</li></Link>
-            <li>Projects</li>
-            <li>About Me</li>
+            <li><a href="https://portifolio-barbosa.netlify.app/" target="_blank">Portfolio</a></li>
+            <li><a href="https://www.linkedin.com/in/andre-barbosa-b4933114a/" target="_blank">About Me</a></li>
         </ul>
     </nav>
     )
